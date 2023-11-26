@@ -45,7 +45,6 @@ public class Formation {
         }
     }
 
-    @Override
     public String toString() {
         return "Formation : " + nom + ", Date : " + date + ", Places Disponibles : " + placesDisponibles +
                 ", Formateur : " + formateur.getNom() + ", Spécialité : " + specialite;

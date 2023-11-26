@@ -2,15 +2,13 @@ package gestion_des_fromation;
 
 import java.util.Arrays;
 
-
 public class Etudiant extends Personne {
-    private String specialite;
+ 
     private String[] formationsChoisies;
     private int filiere;
 
-    public Etudiant(String nom, String numEtudiant, String specialite) {
+    public Etudiant(String nom, String numEtudiant) {
         super(nom, numEtudiant);
-        this.specialite = specialite;
         this.formationsChoisies = new String[3];
     }
 
@@ -34,9 +32,6 @@ public class Etudiant extends Personne {
         return false;
     }
 
-    public String getSpecialite() {
-        return specialite;
-    }
 
     public int getFiliere() {
         return filiere;
@@ -46,22 +41,26 @@ public class Etudiant extends Personne {
         return formationsChoisies;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + ", Spécialité : " + specialite + ", Filière : " + filiere +
-                ", Formations Choisies : " + Arrays.toString(formationsChoisies);
-    }
-
-    public void choisirFiliere(int choixFiliere) {
-        if (choixFiliere >= 1 && choixFiliere <= 5) {
-            filiere = choixFiliere;
-            System.out.println(nom + " a choisi la filière " + filiere);
+    public void selectFiliere(int filiereChoice) {
+        if (filiereChoice >= 1 && filiereChoice <= 5) {
+            filiere = filiereChoice;
+            System.out.println(nom + " filière " + Filiere.getNomFiliere(filiere));
         } else {
             System.out.println("Choix de filière non valide.");
         }
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + ", Filière : " + Filiere.getNomFiliere(filiere) +
+                ", Formations Choisies : " + Arrays.toString(formationsChoisies);
+    }
+
 	public String getNom() {
+		return nom;
+	}
+
+	public Object getSpecialite() {
 		return null;
 	}
 }
